@@ -1,0 +1,19 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "Mi Primera aplicacion en ElectronJs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micha3lvega/my-electron-app.git"
+  },
+  "author": "micha3lvega",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/micha3lvega/my-electron-app/issues"
+  },
+  "homepage": "https://github.com/micha3lvega/my-electron-app#readme"
+}
