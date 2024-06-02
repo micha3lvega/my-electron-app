@@ -22,4 +22,19 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
+/*
+ * Mientras que las aplicaciones de Linux y Windows se cierran cuando no tienen ventanas abiertas,
+ * las aplicaciones de macOS generalmente siguen ejecutándose incluso sin ninguna ventana abierta,
+ * y activar la aplicación cuando no hay ventanas disponibles debería abrir una nueva.
+ */
+app.whenReady().then(() => {
+  createWindow();
 
+  /*
+   Para implementar esta función, escucha el evento activate del módulo app 
+   y llame a su método existente createWindow() si no hay ventanas del navegador abiertas.
+  */
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
+});
