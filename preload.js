@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron');
+
 window.addEventListener("DOMContentLoaded", () => {
 
   const replaceText = (selector, text) => {
@@ -9,4 +11,9 @@ window.addEventListener("DOMContentLoaded", () => {
     replaceText(`${dependency}-version`, process.versions[dependency]);
   }
 
+});
+
+// Manejar el evento para mostrar la alerta
+ipcRenderer.on('show-alert', () => {
+  alert('¡Esta es una alerta desde el menú personalizado!');
 });

@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu } = require("electron");
 const path = require("node:path");
 
 // Metodo para cargar la vista del index.html
@@ -7,16 +7,44 @@ const createWindow = () => {
     width: 800,
     height: 600,
     icon: "./images/icons8-electron-16.png",
-    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
   win.loadFile("index.html");
+  Menu.setApplicationMenu(null); // Metodo para ocultar realmente el menu
+
+  // Personalizar menu
+  const template = [
+    {
+      label: "Opciones",
+      submenu: [
+        { label: "Acerca de", role: "about" },
+        {
+          // Evento de menu personalizado
+          label: 'Mostrar Alerta',
+          click: () => {
+            win.webContents.send('show-alert')
+          }
+        },
+        { type: "separator" },
+        { role: "services" },
+        { type: "separator" },
+        { role: "hide" },
+        { role: "hideOthers" },
+        { role: "unhide" },
+        { type: "separator" },
+        { role: "togglefullscreen" },
+        { label: "Salir", role: "quit" },
+      ],
+    },
+  ];
 
   // Asegurarse que el menu este oculto
-  win.setMenuBarVisibility(false);
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
+  
 };
 
 /**
