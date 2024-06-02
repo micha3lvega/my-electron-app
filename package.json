@@ -4,7 +4,8 @@
   "description": "Mi Primera aplicacion en ElectronJs",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/micha3lvega/my-electron-app/issues"
   },
-  "homepage": "https://github.com/micha3lvega/my-electron-app#readme"
+  "homepage": "https://github.com/micha3lvega/my-electron-app#readme",
+  "devDependencies": {
+    "electron": "^30.0.9"
+  }
 }
