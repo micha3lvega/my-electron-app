@@ -1,5 +1,8 @@
 const { app, BrowserWindow } = require("electron");
 
+const path = require("node:path");
+
+// Metodo para cargar la vista del index.html
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
@@ -8,10 +11,6 @@ const createWindow = () => {
 
   win.loadFile("index.html");
 };
-
-app.whenReady().then(() => {
-  createWindow();
-});
 
 /**
  * En Windows y Linux, al salir de todas las ventanas generalmente se cierra una aplicación por completo.
