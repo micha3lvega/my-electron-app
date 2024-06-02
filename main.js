@@ -1,5 +1,4 @@
 const { app, BrowserWindow } = require("electron");
-
 const path = require("node:path");
 
 // Metodo para cargar la vista del index.html
@@ -7,6 +6,7 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
@@ -14,6 +14,8 @@ const createWindow = () => {
 
   win.loadFile("index.html");
 
+  // Asegurarse que el menu este oculto
+  win.setMenuBarVisibility(false)
 };
 
 /**
