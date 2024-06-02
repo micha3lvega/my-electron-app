@@ -6,6 +6,7 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: "./images/icons8-electron-16.png",
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
@@ -15,7 +16,7 @@ const createWindow = () => {
   win.loadFile("index.html");
 
   // Asegurarse que el menu este oculto
-  win.setMenuBarVisibility(false)
+  win.setMenuBarVisibility(false);
 };
 
 /**
